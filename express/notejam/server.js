@@ -2,17 +2,17 @@
 var debug = require('debug')('notejam');
 var app = require('./app');
 
-const http = require('http');
+//const http = require('http');
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
+//const server = http.createServer((req, res) => {
+//  res.statusCode = 200;
+  //res.setHeader('Content-Type', 'text/plain');
+ // res.end('Hello World');
+//});
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+//server.listen(port, hostname, () => {
+ // console.log(`Server running at http://${hostname}:${port}/`);
+//});
 
 app.set('port', process.env.PORT || 3000);
 
