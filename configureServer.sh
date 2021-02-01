@@ -14,7 +14,6 @@ sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -
 sudo apt-get install -y nginx
 sudo rm -rf /etc/nginx/sites-available/default
 sudo cp /home/nordcloud/notejam/express/notejam/default /etc/nginx/sites-available/default
-sudo nginx -t
 sudo systemctl enable nginx
 sudo systemctl restart nginx
 sudo reboot
