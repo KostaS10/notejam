@@ -16,4 +16,3 @@ sudo rm -rf /etc/nginx/sites-available/default
 sudo cp /home/nordcloud/notejam/express/notejam/default /etc/nginx/sites-available/default
 sudo systemctl enable nginx
 sudo systemctl restart nginx
-sudo reboot
