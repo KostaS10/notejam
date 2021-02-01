@@ -12,13 +12,9 @@ pm2 start bin/www
 pm2 startup systemd
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u nordcloud --hp /home/nordcloud
 sudo apt-get install -y nginx
-rm -rf /etc/nginx/sites-available/default
-cp default /etc/nginx/sites-available/default
+sudo rm -rf /etc/nginx/sites-available/default
+sudo cp /home/nordcloud/notejam/express/notejam/default /etc/nginx/sites-available/default
 sudo nginx -t
+sudo systemctl enable nginx
 sudo systemctl restart nginx
-sudo su
-mkdir /etc/systemd/system/nginx.service.d
-printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
-systemctl daemon-reload
-systemctl restart nginx 
-reboot
+sudo reboot
