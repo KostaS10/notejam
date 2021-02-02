@@ -6,4 +6,4 @@ git clone https://github.com/KostaS10/notejam.git
 cd notejam/express/notejam/
 npm install
 node db.js
-sudo npm start
+npm start
