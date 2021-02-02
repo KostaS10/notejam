@@ -56,8 +56,8 @@ resource "azurerm_network_interface" "nic2" {
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "nicnsg2" {
-  network_interface_id      = azurerm_network_interface.nic2.id
+resource "azurerm_subnet_network_security_group_association" "snetnsg2" {
+  subnet_id                 = azurerm_subnet.snet2.id
   network_security_group_id = azurerm_network_security_group.nsg2.id
 }
 
@@ -109,8 +109,8 @@ resource "azurerm_virtual_machine_scale_set_extension" "script2" {
 
   settings = <<SETTINGS
     {
-  "fileUris": ["https://raw.githubusercontent.com/KostaS10/notejam/master/configureServer.sh"],
-  "commandToExecute": "chmod +x configureServer.sh && sh configureServer.sh"
+  "fileUris": ["https://raw.githubusercontent.com/KostaS10/notejam/master/configureServerbackup.sh"],
+  "commandToExecute": "sh configureServerbackup.sh"
     }
 SETTINGS
 }
@@ -141,7 +141,7 @@ resource "azurerm_monitor_autoscale_setting" "lbautoscale2" {
         operator           = "GreaterThan"
         threshold          = 75
         metric_namespace   = "microsoft.compute/virtualmachinescalesets"
-        
+
       }
 
       scale_action {
@@ -224,4 +224,3 @@ resource "azurerm_lb_backend_address_pool" "bpepool2" {
  loadbalancer_id     = azurerm_lb.lb2.id
  name                = "BackEndAddressPool"
 }
-
