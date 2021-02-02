@@ -70,6 +70,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   admin_username                  = "nordcloud"
   admin_password                  = var.adminpass
   disable_password_authentication = false
+  upgrade_mode = "Automatic"
 
 source_image_reference {
     publisher = "Canonical"
